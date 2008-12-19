@@ -264,7 +264,7 @@ Mimeparse.runTests = function(outputFun) {
     if (arg1) {
       outputFun('<strong style="color:#0d0;">OK:</strong> <tt>'+message+'</tt>');
     } else {
-      console.log(arg2)
+      // console.log(arg2)
       outputFun('<strong style="color:#d00;">FAIL: <tt>'+message+'</tt></strong>');
     }
   }
@@ -272,9 +272,9 @@ Mimeparse.runTests = function(outputFun) {
   function equals(a,b) {
     if (a === b) return true;
     try {
-      console.log('equals')
-      console.log(repr(a))
-      console.log(repr(b))
+      // console.log('equals')
+      // console.log(repr(a))
+      // console.log(repr(b))
       return repr(a) === repr(b);
     } catch (e) {
       return false;
@@ -300,7 +300,7 @@ Mimeparse.runTests = function(outputFun) {
       testFun();
     } catch (e) {
       outputFun('<strong style="color:#f00;">ERROR: '+e.toString()+'</strong>');
-      console.log(e)
+      // console.log(e)
     }
   }
   outputFun("Finished tests.");
