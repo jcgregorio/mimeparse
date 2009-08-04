@@ -148,10 +148,10 @@ var Mimeparse = (function() {
       var parsedHeader = parseRanges(header);
       var weighted = [];
       for (var i=0; i < supported.length; i++) {
-        weighted.push([publicMethods.fitnessAndQualityParsed(supported[i], parsedHeader), supported[i]])
+        weighted.push([publicMethods.fitnessAndQualityParsed(supported[i], parsedHeader), i, supported[i]])
       };
       weighted.sort();
-      return weighted[weighted.length-1][0][1] ? weighted[weighted.length-1][1] : '';
+      return weighted[weighted.length-1][0][1] ? weighted[weighted.length-1][2] : '';
     }
   }
   return publicMethods;
@@ -220,6 +220,9 @@ Mimeparse.tests = {
     // verify fitness ordering
     T(equals(Mimeparse.bestMatch(mimeTypesSupported, 'application/json, text/html;q=0.9'), 'application/json'));
 
+    // test ordering preference (best supported is last)
+    T(equals(Mimeparse.bestMatch(['application/json', 'application/xml'], 'application/json, application/xml'), 'application/xml'));
+    T(equals(Mimeparse.bestMatch(['application/xml', 'application/json'], 'application/json, application/xml'), 'application/json'));
   },
   test_support_wildcards : function() {
     var mime_types_supported = ['image/*', 'application/xml']
