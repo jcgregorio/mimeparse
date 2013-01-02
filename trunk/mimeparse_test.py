@@ -47,7 +47,8 @@ def add_tests(suite, json_object, func_name, test_func):
         desc = "%s(%s) with expected result: %s" % (func_name, str(args), str(expected))
         if len(test_datum) == 3:
             desc = test_datum[2] + " : " + desc
-        func =  partial(test_func, *(args, expected))
+        func = partial(test_func, *(args, expected))
+        func.__name__ = test_func.__name__
         testcase = unittest.FunctionTestCase(func, description=desc)
         suite.addTest(testcase)
 
