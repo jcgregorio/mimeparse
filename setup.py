@@ -7,7 +7,7 @@ from distutils.core import setup
 #from setuptools import setup, find_packages
 
 setup(name='mimeparse',
-      version='0.1.3',
+      version='0.1.4',
       description='A module provides basic functions for parsing mime-type names and matching them against a list of media-ranges.',
       long_description="""
 This module provides basic functions for handling mime-types. It can handle
@@ -30,6 +30,14 @@ Contents:
           'Programming Language :: Python',
           'Topic :: Internet :: WWW/HTTP',
           'Topic :: Software Development :: Libraries :: Python Modules',
+          'Programming Language :: Python :: 2',
+          'Programming Language :: Python :: 2.5',
+          'Programming Language :: Python :: 2.6',
+          'Programming Language :: Python :: 2.7',
+          'Programming Language :: Python :: 3',
+          'Programming Language :: Python :: 3.1',
+          'Programming Language :: Python :: 3.2',
+          'Programming Language :: Python :: 3.3',
           ],
       keywords='mime-type',
       author='Joe Gregorio',
@@ -38,7 +46,6 @@ Contents:
       maintainer_email='joe@bitworking.org',
       url='http://code.google.com/p/mimeparse/',
       license='MIT',
-      py_modules=['mimeparse'],
-      zip_safe=True,
+      py_modules=['mimeparse']
       )
 
